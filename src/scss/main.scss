@@ -1,1 +1,33 @@
 @use "./foundations" as foundations;
+@use "./breakpoints" as bp;
+@use "./components/hero/hero" as bannerHero;
+body {
+  background-color: var(--gc-crema-50);
+}
+main {
+  min-height: calc(100dvh - 80px);
+  padding: 0px 1.5rem;
+
+  @include bp.breakpoint("lg") {
+    padding: 0px 3rem;
+  }
+}
+
+super-header {
+  display: block;
+  min-height: 80px;
+}
+
+super-header:not(:defined) {
+  visibility: hidden;
+}
+
+super-header:defined {
+  visibility: visible;
+}
+
+section {
+  padding: 1rem;
+}
+
+//index
