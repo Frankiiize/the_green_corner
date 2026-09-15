@@ -1,13 +1,32 @@
 @use "../../breakpoints" as bp;
 
 .hero {
+  display: flex;
+  flex-direction: column;
   border-radius: var(--gc-r-medium);
   background-color: var(--gc-verde-700);
   color: var(--gc-crema-50);
   overflow: hidden;
+  // max-height: 800px;
+  @include bp.breakpoint("md") {
+    flex-direction: row;
+  }
 }
 .hero__content {
   padding: 1rem;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding: 1rem;
+
+  @include bp.breakpoint("md") {
+    max-height: unset;
+    justify-content: space-between;
+    padding: 1.2rem;
+  }
+  @include bp.breakpoint("xl") {
+    padding: 2.5rem;
+  }
 }
 
 .hero__content--title {
@@ -15,6 +34,12 @@
   font-weight: 400;
   line-height: 1.02;
   letter-spacing: -0.02rem;
+  @include bp.breakpoint("md") {
+    font-size: 40px;
+  }
+  @include bp.breakpoint("lg") {
+    font-size: 66px;
+  }
 }
 
 .hero__content--description {
@@ -25,16 +50,29 @@
   letter-spacing: -0.02rem;
   color: var(--gc-crema-50);
   opacity: 0.8;
+  @include bp.breakpoint("md") {
+    font-size: 1.1rem;
+  }
+  @include bp.breakpoint("lg") {
+    font-size: 1.3rem;
+  }
 }
-.hero__content--actionBtns {
+.hero__content__actionBtns {
   margin-top: 1.6rem;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
+  @include bp.breakpoint("md") {
+    gap: 1.2rem;
+  }
+  @include bp.breakpoint("lg") {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
 }
 
-.hero__content--info {
+.hero__content__info {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -43,10 +81,13 @@
   border-top: 1px solid;
   border-top: 1px solid rgba(244, 241, 234, 0.2);
   gap: 0.8rem;
-  justify-content: flex-start;
   align-items: center;
+  justify-content: center;
+  @include bp.breakpoint("xl") {
+    justify-content: flex-start;
+  }
 }
-.hero__content--info > span {
+.hero__content__info > span {
   font-family: var(--gc-f-archivo);
   font-weight: 300;
   line-height: 1.65;
@@ -58,9 +99,12 @@
 .hero__bg {
   width: 100%;
   height: 100%;
-  max-height: 400px;
+  max-height: 300px;
   display: flex;
   overflow: hidden;
+  @include bp.breakpoint("md") {
+    max-height: 600px;
+  }
 }
 .hero__bg > img {
   width: 100%;

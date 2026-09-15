@@ -1,12 +1,12 @@
 @use "sass:map";
 $breakpoints: (
-  xs: xs,
-  sm: sm,
-  md: md,
-  lg: lg,
-  xl: xl,
-  xxl: xxl,
-  xxxl: xxxl,
+  xs: 576px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+  xxxl: 1920px,
 );
 
 @mixin breakpoint($key) {
