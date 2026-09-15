@@ -160,7 +160,7 @@ export class SuperHeader extends LitElement {
       >
         <ul>
           <li>
-            <a href="/views/index.html">Incio</a>
+            <a href="/">Incio</a>
           </li>
           <li>
             <a href="/views/productos.html">Catalogo</a>
