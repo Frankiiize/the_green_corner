@@ -7,6 +7,7 @@
   background-color: var(--gc-verde-700);
   color: var(--gc-crema-50);
   overflow: hidden;
+  margin-top: 1rem;
   @include bp.breakpoint("md") {
     flex-direction: row;
   }
@@ -42,12 +43,12 @@
     display: flex;
     width: 100%;
     flex-direction: column;
-    padding: 1rem;
+    padding: 1.8rem;
 
     @include bp.breakpoint("md") {
       max-height: unset;
       justify-content: space-between;
-      padding: 1.2rem;
+      padding: 2rem;
     }
     @include bp.breakpoint("xl") {
       padding: 2.5rem;
