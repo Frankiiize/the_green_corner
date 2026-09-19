@@ -9,8 +9,7 @@ export class SuperButton extends LitElement {
     }
     :host([animate-shake]) {
       button:hover {
-        animation: shaking 0.3s 2;
-        animation-timing-function: ease-in-out;
+        animation: shaking 0.3s 2 ease-in-out;
       }
     }
     button {
@@ -99,11 +98,14 @@ export class SuperButton extends LitElement {
     }
   `;
 
+  static formAssociated = true;
+
   static properties = {
     text: { attribute: "text" },
     variant: { attribute: "variant" },
     outline: { type: Boolean },
     icon: { type: Boolean },
+    type: { type: String, reflect: true },
   };
 
   constructor() {
@@ -112,10 +114,24 @@ export class SuperButton extends LitElement {
     this.text = "";
     this.outline = false;
     this.icon = false;
+    this.internals_ = this.attachInternals();
   }
+
+  handleClick = () => {
+    const form = this.internals_.form;
+
+    if (this.type === "submit") {
+      form?.requestSubmit();
+    }
+
+    if (this.type === "reset") {
+      form?.reset();
+    }
+  };
 
   render() {
     return html`<button
+      @click=${this.handleClick}
       class=${classMap({
         [this.variant]: !this.outline ? true : false,
         [`${this.variant}--outline`]: this.outline,

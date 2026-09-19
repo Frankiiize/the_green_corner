@@ -19,25 +19,42 @@ main {
     margin: 0 auto;
     max-width: 1600px;
   }
+  animation: fadeIn 0.2s ease-in;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 section {
   padding: 1.5rem 1rem;
 }
-
-super-header,
-super-footer {
+img {
   display: block;
-  min-height: 80px;
+  max-width: 100%;
+  height: auto;
 }
-super-header:not(:defined),
-super-footer:not(:defined) {
-  visibility: hidden;
-}
-super-header:defined,
-super-footer:defined {
-  visibility: visible;
-}
+
+// super-header,
+// super-footer {
+//   display: block;
+//   min-height: 80px;
+// }
+// super-card:not(:defined),
+// super-header:not(:defined),
+// super-footer:not(:defined) {
+//   visibility: hidden;
+// }
+// super-card:defined,
+// super-header:defined,
+// super-footer:defined {
+//   visibility: visible;
+// }
 
 .title {
   font-family: var(--gc-f-newsreader);
@@ -118,7 +135,6 @@ super-footer:defined {
   }
   @include bp.breakpoint("lg") {
     grid-gap: 1.5rem;
-    // grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   }
 }
 
@@ -128,4 +144,59 @@ super-footer:defined {
   @include bp.breakpoint("md") {
     transform: translate3d(0px, -10px, 0);
   }
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--gc-r-medium);
+  background-color: var(--gc-verde-700);
+  color: var(--gc-crema-50);
+  overflow: hidden;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.contact-card__form--item {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: flex;
+  font-family: var(--gc-f-archivo);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gc-crema-50);
+  opacity: 0.5;
+  margin: 0.5rem;
+}
+label:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+input {
+  background: rgba(244, 241, 234, 0.06);
+  border: 1px solid rgba(244, 241, 234, 0.25);
+  border-radius: 11px;
+  padding: 15px 16px;
+  color: rgb(244, 241, 234);
+  font-family: var(--gc-f-archivo);
+  font-weight: 400;
+  font-size: 15px;
+  outline: none;
+  width: 100%;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-internal-autofill-selected {
+  background-color: transparent !important;
+  box-shadow: 0 0 0px 1000px transparent inset !important;
+  color: var(--gc-white) !important;
+  -webkit-text-fill-color: var(--gc-white) !important;
+  transition: all 5000s ease-in-out 0s !important;
 }

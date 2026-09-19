@@ -10,7 +10,58 @@
 <body>
   <super-header></super-header>
   <main class="container">
-    <h1>nosotros</h1>
+    <section>
+      <h6>Quiénes somos</h6>
+      <h1>Empezamos con doce macetas en un balcón.</h1>
+      <img />
+      <p>Somos Lucía y Damián. En 2021 armamos un vivero en el patio de casa porque no encontrábamos plantas sanas a
+        precio justo
+        en el barrio. Hoy cultivamos en un invernadero de 200 m² y trabajamos con dos talleres de cerámica de la zona.
+
+        Nuestra misión es simple: que tener plantas no cueste el planeta. Reutilizamos sustrato, compostamos los
+        descartes,
+        entregamos en caja de cartón reciclado y no usamos plástico de un solo uso en ningún envío.</p>
+    </section>
+    <section>
+      <div class="contact-card">
+        <div class="contact-card__heading">
+          <h6>Contacto</h6>
+          <h1>Escribinos y te respondemos el mismo día.</h1>
+          <div>
+            Atendemos pedidos, dudas de cuidado y presupuestos para oficinas y eventos.
+
+            WhatsApp · +54 9 11 5555 0192
+            hola@thegreencorner.shop
+            Taller · Pasaje Los Álamos 214 · jueves a sábado, 10 a 18
+          </div>
+        </div>
+        <div class="contact-card__form">
+          <form>
+            <div class="contact-card__form--item">
+              <label for="userName">
+                Nombre
+              </label>
+              <input id="userName" name="userName" type="text" required="true" placeholder="Francisco Jimenez" />
+            </div>
+            <div class="contact-card__form--item">
+              <label for="email">
+                Correo
+              </label>
+              <input id="email" name="email" type="email" required="true" placeholder="francisco@email.com" />
+            </div>
+            <div class="contact-card__form--item">
+              <label for="content">
+                Motivo de consulta
+              </label>
+              <input id="content" name="content" type="text" required="true" placeholder="quiero hacer un pedido" />
+            </div>
+            <div class="contact-card__form--item">
+              <super-button text="Submit" type="submit"></super-button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
   </main>
 
   <script type="module" src="../main.js"></script>

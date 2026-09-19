@@ -152,7 +152,9 @@ export class SuperHeader extends LitElement {
 
   render() {
     return html`<header>
-      <div class="brand">${unsafeSVG(brandLogo)}</div>
+      <a href="/">
+        <div class="brand">${unsafeSVG(brandLogo)}</div>
+      </a>
       <nav
         class=${classMap({
           nav: true,

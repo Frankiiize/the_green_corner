@@ -72,10 +72,7 @@ export class SuperCard extends LitElement {
       overflow-wrap: break-word;
       word-break: normal;
       @media (min-width: 768px) {
-        font-size: 1.1rem;
-      }
-      @media (min-width: 992px) {
-        font-size: 1.3rem;
+        font-size: 1rem;
       }
     }
 
