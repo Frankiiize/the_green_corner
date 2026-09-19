@@ -1,0 +1,5 @@
+@media (min-width: 576px) {
+  super-carousel > .item:hover ~ .item {
+    transform: translate3d(50px, 10px, 0);
+  }
+}

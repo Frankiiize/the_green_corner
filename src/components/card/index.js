@@ -56,6 +56,9 @@ export class SuperCard extends LitElement {
       letter-spacing: -0.02rem;
       color: var(--gc-verde-700);
       opacity: 0.8;
+      white-space: normal;
+      overflow-wrap: break-word;
+      word-break: normal;
       @media (min-width: 768px) {
         font-size: 1.1rem;
       }
@@ -108,7 +111,6 @@ export class SuperCard extends LitElement {
   `;
 
   static properties = {
-    // isMenuOpen: { state: true },
     title: { attribute: "s-title" },
     description: { attribute: "s-description" },
     price: { attribute: "s-price" },
@@ -117,17 +119,12 @@ export class SuperCard extends LitElement {
 
   constructor() {
     super();
-    // this.isMenuOpen = false;
     this.title = "";
     this.price = 0;
     this.description = "";
     this.currency = "$";
     this.discount = 0;
   }
-
-  handleToggleHamburger = () => {
-    // this.isMenuOpen = !this.isMenuOpen;
-  };
 
   render() {
     return html` <div class="card">
@@ -140,7 +137,7 @@ export class SuperCard extends LitElement {
       <div class="card__body">
         <div class="card__body__info">
           <p class="card__body__info--title">${this.title}</p>
-          <p class="card__body__info--description">${this.description}</p>
+          <span class="card__body__info--description">${this.description}</span>
         </div>
         <div class="card__body__footer">
           <div class="card__body__footer__price">

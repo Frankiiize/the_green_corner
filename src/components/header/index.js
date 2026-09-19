@@ -33,6 +33,7 @@ export class SuperHeader extends LitElement {
       opacity: 0;
       transform: translateY(14px);
       pointer-events: none;
+      padding-right: 8rem;
 
       @media (min-width: 992px) {
         visibility: visible;

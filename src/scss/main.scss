@@ -5,29 +5,38 @@ body {
   background-color: var(--gc-crema-50);
 }
 main {
-  min-height: calc(100dvh - 80px);
+  min-height: calc(100dvh - 80px - 81px);
   padding: 0px 1.5rem;
-
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   @include bp.breakpoint("lg") {
     padding: 0px 3rem;
   }
+  @include bp.breakpoint("lg") {
+    padding: 0px 5rem;
+    margin: 0 auto;
+    max-width: 1600px;
+  }
 }
 
-super-header {
+super-header,
+super-footer {
   display: block;
   min-height: 80px;
 }
-
-super-header:not(:defined) {
+super-header:not(:defined),
+super-footer:not(:defined) {
   visibility: hidden;
 }
-
-super-header:defined {
+super-header:defined,
+super-footer:defined {
   visibility: visible;
 }
 
 section {
-  padding: 1rem;
+  padding: 1.5rem 1rem;
 }
 
 //index
