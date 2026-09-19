@@ -11,18 +11,7 @@
   @include bp.breakpoint("md") {
     flex-direction: row;
   }
-  .title {
-    font-family: var(--gc-f-newsreader);
-    font-weight: 400;
-    line-height: 1.02;
-    letter-spacing: -0.02rem;
-    @include bp.breakpoint("md") {
-      font-size: 40px;
-    }
-    @include bp.breakpoint("lg") {
-      font-size: 66px;
-    }
-  }
+
   .description {
     margin-top: 1rem;
     font-family: var(--gc-f-newsreader);

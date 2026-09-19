@@ -6,6 +6,14 @@ export class SuperCard extends LitElement {
       margin: 0;
       padding: 0;
     }
+    :host {
+      will-change: auto;
+    }
+    :host(:hover) {
+      ::slotted([slot="image"]) {
+        transform: scale(1.13);
+      }
+    }
     .card {
       display: flex;
       flex-direction: column;
@@ -14,6 +22,7 @@ export class SuperCard extends LitElement {
       position: relative;
       border-radius: var(--gc-r-medium);
       overflow: hidden;
+      transition: all 0.2s;
     }
     .card__header {
       display: flex;
@@ -27,10 +36,13 @@ export class SuperCard extends LitElement {
       display: flex;
     }
 
-    .card__header__background > img {
+    ::slotted([slot="image"]) {
       width: 100%;
       object-fit: cover;
+      transition: all 0.3s;
+      overflow: hidden;
     }
+
     .card__body {
       display: flex;
       flex-direction: column;
@@ -77,7 +89,7 @@ export class SuperCard extends LitElement {
     }
     .card__body__footer__actionBtns {
       max-width: 200px;
-      width: 100%;
+      width: 30%;
     }
     .card__body__footer__price {
       display: flex;
@@ -131,7 +143,7 @@ export class SuperCard extends LitElement {
       <div class="card__header">
         <slot name="badge"></slot>
         <div class="card__header__background">
-          <img src="./assets/png/hero-img.png" />
+          <slot name="image"></slot>
         </div>
       </div>
       <div class="card__body">

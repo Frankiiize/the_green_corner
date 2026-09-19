@@ -7,6 +7,12 @@ export class SuperButton extends LitElement {
     * {
       box-sizing: border-box;
     }
+    :host([animate-shake]) {
+      button:hover {
+        animation: shaking 0.3s 2;
+        animation-timing-function: ease-in-out;
+      }
+    }
     button {
       background-color: transparent;
       border: 1px solid transparent;
@@ -26,9 +32,30 @@ export class SuperButton extends LitElement {
       letter-spacing: 0.05em;
       cursor: pointer;
       color: var(--gc-crema-50);
-      transition: background 0.2s;
+      transition:
+        border-color 0.2s,
+        background-color 0.2s;
     }
-    .primary {
+    @keyframes shaking {
+      0% {
+        transform: translate(0, 0);
+      }
+      25% {
+        transform: translate(4px, 2px);
+      }
+      50% {
+        transform: translate(0, 0);
+      }
+      75% {
+        transform: translate(-4px, 2px);
+      }
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+
+    .primary,
+    .primary.icon {
       background: var(--gc-terra-500);
     }
     .primary:hover {
@@ -42,11 +69,20 @@ export class SuperButton extends LitElement {
     .primary--outline:hover {
       border: 1px solid var(--gc-crema-50);
     }
+
     .secondary {
       background: var(--gc-verde-700);
     }
     .secondary:hover {
       background: var(--gc-terra-500);
+    }
+    .secondary--outline {
+      border: 1px solid rgba(31, 58, 46, 0.22);
+      background-color: transparent;
+      color: var(--gc-verde-700);
+    }
+    .secondary--outline:hover {
+      border: 1px solid var(--gc-verde-500);
     }
     .tertiary {
       background: var(--gc-white);
@@ -56,12 +92,18 @@ export class SuperButton extends LitElement {
       background: var(--gc-verde-700);
       color: var(--gc-crema-50);
     }
+    .primary--icon,
+    .secondary--icon,
+    .tertiary--icon {
+      padding: 10px 20px;
+    }
   `;
 
   static properties = {
     text: { attribute: "text" },
     variant: { attribute: "variant" },
     outline: { type: Boolean },
+    icon: { type: Boolean },
   };
 
   constructor() {
@@ -69,6 +111,7 @@ export class SuperButton extends LitElement {
     this.variant = "primary";
     this.text = "";
     this.outline = false;
+    this.icon = false;
   }
 
   render() {
@@ -76,9 +119,10 @@ export class SuperButton extends LitElement {
       class=${classMap({
         [this.variant]: !this.outline ? true : false,
         [`${this.variant}--outline`]: this.outline,
+        [`${this.variant}--icon`]: this.icon,
       })}
     >
-      ${this.text}
+      <slot> ${this.text} </slot>
     </button>`;
   }
 }
