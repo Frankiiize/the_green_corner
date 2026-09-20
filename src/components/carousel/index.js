@@ -30,7 +30,7 @@ export class SuperCarousel extends LitElement {
 
     .container {
       width: 100%;
-      margin: 2rem 0;
+      margin: 0.5rem;
       padding-bottom: 10px;
       white-space: nowrap;
     }
@@ -40,7 +40,7 @@ export class SuperCarousel extends LitElement {
       display: inline-block;
       width: 100%;
       height: auto;
-      padding: 5px !important;
+      padding: 5px;
       overflow: hidden;
       border-radius: 20px;
       cursor: pointer;
@@ -95,8 +95,11 @@ export class SuperCarousel extends LitElement {
 
   handleWheel = (event) => {
     event.preventDefault();
+    const movement = event.deltaY > 0 ? event.deltaY + 180 : event.deltaY - 180;
+
+    console.log(movement);
     this.scrollBy({
-      left: event.deltaY,
+      left: movement,
       behavior: "smooth",
     });
   };
@@ -104,11 +107,12 @@ export class SuperCarousel extends LitElement {
   connectedCallback() {
     super.connectedCallback();
     this.addEventListener("mouseenter", this.handleMouseIn);
+    this.addEventListener("wheel", this.handleWheel);
   }
 
   render() {
     return html`
-      <div class="container" @wheel=${this.handleWheel}>
+      <div class="container">
         <slot @slotchange=${this.handleSlotChange}></slot>
       </div>
     `;

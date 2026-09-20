@@ -1,0 +1,21 @@
+//------- badge ------- //
+
+.badge {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+
+  border: 1px solid var(--gc-terra-500);
+  color: rgb(255, 255, 255);
+  padding: 8px 13px;
+  border-radius: var(--gc-r-rounded);
+  background-color: var(--gc-terra-500);
+  z-index: 1;
+}
+
+.badge--text {
+  font-family: var(--gc-f-archivo);
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+}
