@@ -3,6 +3,7 @@ import { resolve } from "path";
 
 export default defineConfig({
   root: resolve(import.meta.dirname, "src"),
+  base: "./",
   server: {
     open: "/index.html",
   },

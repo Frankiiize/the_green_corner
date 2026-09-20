@@ -151,8 +151,10 @@ export class SuperHeader extends LitElement {
   };
 
   render() {
+    const basePath = window.location.pathname.startsWith("/dist/") ? "/dist/" : "/";
+
     return html`<header>
-      <a href="/">
+      <a href="${basePath}index.html">
         <div class="brand">${unsafeSVG(brandLogo)}</div>
       </a>
       <nav
@@ -163,13 +165,13 @@ export class SuperHeader extends LitElement {
       >
         <ul>
           <li>
-            <a href="/">Incio</a>
+            <a href="${basePath}index.html">Incio</a>
           </li>
           <li>
-            <a href="/views/productos.html">Catalogo</a>
+            <a href="${basePath}views/productos.html">Catalogo</a>
           </li>
           <li>
-            <a href="/views/nosotros.html">Nosotros</a>
+            <a href="${basePath}views/nosotros.html">Nosotros</a>
           </li>
         </ul>
       </nav>

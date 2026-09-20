@@ -8,6 +8,9 @@ import "./components/carousel/index";
 
 const contactForm = () => {
   const form = document.querySelector("form");
+
+  if (!form) return;
+
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     const formData = new FormData(form);
@@ -26,7 +29,7 @@ const contactForm = () => {
 const initialize = () => {
   const path = window.location.pathname;
 
-  if (path === "/views/nosotros.html") {
+  if (path.endsWith("/views/nosotros.html")) {
     contactForm();
   }
 };
